@@ -14,10 +14,12 @@ describe 'Money' do
   describe 'equality' do
     it 'オブジェクトが等しいこと' do
       expect(Dollar.new 5).to be_equals(Dollar.new 5)
+      expect(Franc.new 5).to be_equals(Franc.new 5)
     end
 
     it 'オブジェクトが等しくないこと' do
       expect(Dollar.new 5).not_to be_equals(Dollar.new 6)
+      expect(Franc.new 5).not_to be_equals(Franc.new 6)
     end
   end
 
