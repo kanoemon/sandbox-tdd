@@ -20,6 +20,7 @@ describe 'Money' do
     it 'オブジェクトが等しくないこと' do
       expect(Dollar.new 5).not_to be_equals(Dollar.new 6)
       expect(Franc.new 5).not_to be_equals(Franc.new 6)
+      expect(Dollar.new 5).not_to be_equals(Franc.new 5)
     end
   end
 
