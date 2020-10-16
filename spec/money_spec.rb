@@ -5,11 +5,8 @@ describe 'Money' do
   describe 'multiplication' do
     it '掛け算が正常に行われること' do
       five = Dollar.new 5
-      product = five.times 2
-      expect(10).to eq product.amount
-
-      product = five.times 3
-      expect(15).to eq product.amount
+      expect(Dollar.new 10).to be_equals(five.times 2)
+      expect(Dollar.new 15).to be_equals(five.times 3)
     end
   end
 
