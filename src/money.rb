@@ -7,7 +7,7 @@ class Money
   end
 
   def equals? object
-    @amount === object.amount && self.class.name === object.class.name
+    @amount === object.amount && currency === object.currency
   end
 
   def self.dollar amount
@@ -20,5 +20,9 @@ class Money
 
   def currency
    @currency 
+  end
+
+  def times multiplier
+    Money.new(@amount * multiplier, currency)
   end
 end

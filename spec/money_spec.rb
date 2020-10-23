@@ -33,10 +33,16 @@ describe 'Money' do
     end
   end
 
-  describe 'currency' do
+  describe 'Currency' do
     it 'currencyが取得できること' do
       expect('USD').to eq Money.dollar(1).currency()
       expect('CHF').to eq Money.franc(1).currency()
+    end
+  end
+
+  describe 'Difference class equality' do
+    it '' do
+      expect(Money.new(10, 'CHF')).to be_equals(Franc.new(10, 'CHF'))
     end
   end
 end
