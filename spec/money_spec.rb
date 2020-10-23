@@ -32,4 +32,11 @@ describe 'Money' do
       expect(Money.franc 15).to be_equals(five.times 3)
     end
   end
+
+  describe 'currency' do
+    it 'currencyが取得できること' do
+      expect('USD').to eq Money.dollar(1).currency()
+      expect('CHF').to eq Money.franc(1).currency()
+    end
+  end
 end
