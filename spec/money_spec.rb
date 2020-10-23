@@ -1,7 +1,5 @@
 require 'spec_helper'
 require_relative '../src/money'
-require_relative '../src/dollar'
-require_relative '../src/franc'
 
 describe 'Money' do
   describe 'multiplication' do
@@ -25,24 +23,10 @@ describe 'Money' do
     end
   end
 
-  describe 'Franc multiplication' do
-    it '掛け算が正常に行われること' do
-      five = Money.franc 5
-      expect(Money.franc 10).to be_equals(five.times 2)
-      expect(Money.franc 15).to be_equals(five.times 3)
-    end
-  end
-
   describe 'Currency' do
     it 'currencyが取得できること' do
       expect('USD').to eq Money.dollar(1).currency()
       expect('CHF').to eq Money.franc(1).currency()
-    end
-  end
-
-  describe 'Difference class equality' do
-    it '' do
-      expect(Money.new(10, 'CHF')).to be_equals(Franc.new(10, 'CHF'))
     end
   end
 end
