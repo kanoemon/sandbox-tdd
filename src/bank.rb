@@ -1,5 +1,5 @@
 class Bank
-  def reduce(source, to)
-    Money.dollar(10)
+  def reduce(source: ,to:)
+    source.reduce(to: to)
   end
 end

@@ -39,8 +39,36 @@ describe 'Money' do
       sum = five.plus(five)
 
       bank = Bank.new
-      reduced = bank.reduce(sum, 'USD')
+      reduced = bank.reduce(source: sum, to: 'USD')
       expect(Money.dollar 10).to be_equals(reduced)
+    end
+  end
+
+  describe 'Plus returns sum' do
+    it '足し算をして、Sumオブジェクトが返ること' do
+      five = Money.dollar(5)
+      sum = five.plus(five)
+      expect(five).to eq sum.augend
+      expect(five).to eq sum.addend
+    end
+  end
+
+  describe 'Reduce sum' do
+    it '足し算した結果を換算し、Moneyオブジェクトが返ること' do
+      sum = Sum.new(Money.dollar(3), Money.dollar(4))
+
+      bank = Bank.new
+      result = bank.reduce(source: sum, to: 'USD')
+      expect(Money.dollar 7).to be_equals(result)
+    end
+  end
+
+  describe 'Redice money' do
+    it 'Moneyオブジェクトを換算し、Moneyオブジェクトが返ること' do
+      bank = Bank.new
+      result = bank.reduce(source: Money.dollar(1), to: 'USD')
+
+      expect(Money.dollar 1).to be_equals(result)
     end
   end
 end
